@@ -1,4 +1,5 @@
 package service;
 
-public class CourseEnrollmentService {
+public interface CourseEnrollmentService {
+    boolean enrollStudentInCourseTransactional(int courseId, int studentId);
 }

@@ -1,4 +1,7 @@
 package concurrency_control;
 
-public class LockManager {
+public interface LockManager {
+    void lockClassroomForEnrollment(int classroomId);
+    void lockInstructorForAssignment(int instructorId);
+    void lockCourseForEnrollment(int courseId);
 }

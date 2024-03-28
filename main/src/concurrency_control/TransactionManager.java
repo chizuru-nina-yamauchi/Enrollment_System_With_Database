@@ -1,4 +1,7 @@
 package concurrency_control;
 
-public class TransactionManager {
+public interface TransactionManager {
+    void addCourseAtomically(String title, int capacity);
+    void dropCourseAtomically(int courseId);
+    void dropCourseEnrollmentRollbackOnFailure(int enrollmentId, int courseId);
 }
