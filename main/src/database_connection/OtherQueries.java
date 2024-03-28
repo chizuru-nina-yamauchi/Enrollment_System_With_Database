@@ -4,13 +4,13 @@ public enum OtherQueries {
     // Consistency
     CHECK_COURSE_CAPACITY(
             "SELECT capacity FROM Courses WHERE course_id = ?"
-    ),
+    ), // CourseDaoImpl
     CHECK_CLASSROOM_CAPACITY(
             "SELECT capacity FROM Classrooms WHERE classroom_id = ?"
-    ),
+    ), // ClassroomDaoImpl
     CHECK_INSTRUCTOR_ASSIGNMENT(
             "SELECT COUNT(*) FROM CourseInstructors WHERE course_id = ? AND instructor_id = ?"
-    ),
+    ), // CourseInstructorDaoImpl
     ASSIGN_INSTRUCTOR_TO_COURSE("INSERT INTO CourseInstructors (course_id, instructor_id) VALUES (?, ?)"),
     UNASSIGN_INSTRUCTOR_FROM_COURSE("DELETE FROM CourseInstructors WHERE course_id = ? AND instructor_id = ?"),
     ENROLL_STUDENT_IN_COURSE_TRANSACTIONAL(

@@ -1,5 +1,6 @@
 package dao;
 
+import database_connection.OtherQueries;
 import entity.CourseInstructor;
 import database_connection.ConnectionFactory;
 import database_connection.CRUDQueries;
@@ -120,4 +121,25 @@ public class CourseInstructorDaoImpl implements CourseInstructorDao {
         }
         return true;
     }
+
+    // Other operations
+    @Override
+    public int checkInstructorAssignment(int courseId, int instructorId) {
+        int count = -1;
+        try (Connection connection = ConnectionFactory.getInstance().createConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(OtherQueries.CHECK_INSTRUCTOR_ASSIGNMENT.getQuery())) {
+            preparedStatement.setInt(1, courseId);
+            preparedStatement.setInt(2, instructorId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    count = resultSet.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+
 }

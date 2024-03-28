@@ -12,4 +12,7 @@ public interface CourseInstructorDao {
     boolean deleteCourseInstructor(int courseId, int instructorId);
     boolean updateCourseInstructor(CourseInstructor courseInstructor);
 
+    // Other operations
+    int checkInstructorAssignment(int courseId, int instructorId);
+
 }

@@ -2,6 +2,7 @@ package dao;
 
 import database_connection.ConnectionFactory;
 import database_connection.CRUDQueries;
+import database_connection.OtherQueries;
 import entity.Classroom;
 
 import java.sql.Connection;
@@ -101,5 +102,26 @@ public class ClassroomDaoImpl implements ClassroomDao {
         }
         return true;
     }
+
+    // Other operations
+
+    @Override
+    public int checkClassroomCapacity(int classroomId) {
+        int capacity = -1;
+        try (Connection connection = ConnectionFactory.getInstance().createConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(OtherQueries.CHECK_CLASSROOM_CAPACITY.getQuery())) {
+            preparedStatement.setInt(1, classroomId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    capacity = resultSet.getInt("capacity");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return capacity;
+    }
+
+
 }
 

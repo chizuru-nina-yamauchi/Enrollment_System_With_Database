@@ -11,4 +11,7 @@ public interface ClassroomDao {
     boolean updateClassroom(Classroom classroom);
     boolean deleteClassroomById(int classroomId);
 
+    // Other operations
+    int checkClassroomCapacity(int classroomId);
+
 }

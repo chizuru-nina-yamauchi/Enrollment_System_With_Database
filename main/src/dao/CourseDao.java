@@ -10,4 +10,7 @@ public interface CourseDao {
     Course insertCourse(Course course);
     boolean updateCourse(Course course);
     boolean deleteCourseById(int courseId);
+
+    // Other operation
+    int checkCourseCapacity(int courseId);
 }
