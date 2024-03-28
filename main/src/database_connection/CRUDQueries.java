@@ -51,11 +51,12 @@ public enum CRUDQueries {
     UPDATE_GRADE("UPDATE Grades SET grade = ? WHERE enrollment_id = ?"),
     DELETE_GRADE_BY_ENROLLMENT_ID("DELETE FROM Grades WHERE enrollment_id = ?"),
 
-    // CourseInstructor queries
+    // CourseInstructorDao queries
     GET_ALL_COURSE_INSTRUCTORS("SELECT * FROM CourseInstructors"),
     GET_COURSE_INSTRUCTORS_BY_COURSE_ID("SELECT * FROM CourseInstructors WHERE course_id = ?"),
     GET_COURSE_INSTRUCTORS_BY_INSTRUCTOR_ID("SELECT * FROM CourseInstructors WHERE instructor_id = ?"),
     INSERT_COURSE_INSTRUCTOR("INSERT INTO CourseInstructors (course_id, instructor_id) VALUES (?, ?)"),
+    UPDATE_COURSE_INSTRUCTOR("UPDATE CourseInstructors SET course_id = ?, instructor_id = ? WHERE course_id = ? AND instructor_id = ?"),
     DELETE_COURSE_INSTRUCTOR("DELETE FROM CourseInstructors WHERE course_id = ? AND instructor_id = ?"),
 
     // CourseSchedule queries

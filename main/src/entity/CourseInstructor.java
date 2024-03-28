@@ -37,7 +37,7 @@ public class CourseInstructor {
 
     @Override
     public String toString() {
-        return "CourseInstructor{" +
+        return "CourseInstructorDao{" +
                 "courseId=" + courseId +
                 ", instructorId=" + instructorId +
                 '}';
